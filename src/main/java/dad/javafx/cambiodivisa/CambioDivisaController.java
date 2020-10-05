@@ -87,7 +87,7 @@ public class CambioDivisaController extends Application {
 		} catch (NumberFormatException e1) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Cambio de divisa");
-			alert.setHeaderText("ERROR: Carácter alfabeticos.");
+			alert.setHeaderText("ERROR: Carácter alfabético.");
 			alert.setContentText(
 					"No introduzca caracteres alfabéticos o símbolos, solo estan permitidos los caracteres numéricos");
 			alert.showAndWait();
