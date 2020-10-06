@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 
 public class CambioDivisaController extends Application {
 
+	private Stage primaryStage;
+	
 	private Divisa euro = new Divisa("Euro", 1.0);
 	private Divisa libra = new Divisa("Libra", 0.9);
 	private Divisa dolar = new Divisa("Dolar", 1.17);
@@ -30,6 +32,9 @@ public class CambioDivisaController extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
+		this.primaryStage = primaryStage;
+		
 		// TextField
 		origenText = new TextField();
 		origenText.setText("0");
@@ -85,7 +90,9 @@ public class CambioDivisaController extends Application {
 			Double cantidadDestino = divisaDestino.fromEuro(divisaorigen.toEuro(cantidadOrigen));
 			destinoText.setText("" + cantidadDestino);
 		} catch (NumberFormatException e1) {
+			//e1.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(primaryStage);
 			alert.setTitle("Cambio de divisa");
 			alert.setHeaderText("ERROR: Carácter alfabético.");
 			alert.setContentText(
